@@ -1,11 +1,10 @@
 package org.surgonthewaves.projects.httpReq.utils;
 
+import com.mashape.unirest.http.HttpResponse;
 import org.surgonthewaves.projects.httpReq.ExitException;
-
-import java.util.Map;
 
 public interface IHttpUrlRequest {
 
-    public Map<String, String> postRequest(String postUrl, String urlParameters) throws ExitException;
+    public HttpResponse<String> postRequest(String postUrl, String urlParameters) throws ExitException;
 
 }

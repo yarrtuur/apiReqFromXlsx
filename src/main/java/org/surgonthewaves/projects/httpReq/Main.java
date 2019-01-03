@@ -11,9 +11,12 @@ public class Main {
 
             RequestDataReader requestDataReader = new RequestDataReader("./requestFields.xlsx");
             Collection<RequestNode> collectionRequests = requestDataReader.getRequestData();
-            IRequestHolder requestHolder = new RequestHolder(collectionRequests);
 
-            System.out.println("Response Map : " + requestHolder.sendRequest().toString() );
+
+
+            IRequestHolder requestHolder = new RequestHolder(collectionRequests);
+            requestHolder.sendRequest();
+
         } catch (Exception ex) {
             ex.printStackTrace();
         }

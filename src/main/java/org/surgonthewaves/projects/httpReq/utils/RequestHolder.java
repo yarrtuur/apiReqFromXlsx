@@ -19,29 +19,14 @@ public class RequestHolder implements IRequestHolder{
         this.requestList = requestList;
     }
 
-    public Map<String, String> sendRequest(String key, String condition) throws ExitException {
-        for (RequestNode step : requestList) {
-            requestMap = step.getDynamicCols();
-            if (requestMap.get(key).equals(condition)) {
-                String urlParameters = makeUrlParameters();
-                HttpUrlRequest httpUrlRequest = new HttpUrlRequest();
-                return httpUrlRequest.postRequest(postUrl, urlParameters);
-            }
-        }
-        return Collections.emptyMap();
-    }
-
-    public Map<String, String> sendRequest() throws ExitException {
+    public void sendRequest() throws ExitException {
         for (RequestNode step : requestList) {
             requestMap = step.getDynamicCols();
             String urlParameters = makeUrlParameters();
             IHttpUrlRequest httpUrlRequest = new HttpUrlRequest();
-
-//todo - parsing response data
-            return httpUrlRequest.postRequest(postUrl, urlParameters);
-
+            httpUrlRequest.postRequest(postUrl, urlParameters).getBody();
         }
-        return Collections.emptyMap();
+
     }
 
     private String makeUrlParameters() {
