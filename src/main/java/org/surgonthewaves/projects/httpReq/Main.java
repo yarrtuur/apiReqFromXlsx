@@ -9,11 +9,11 @@ public class Main {
     public static void main(String[] args) {
         try {
 
-            RequestDataReader requestDataReader = new RequestDataReader("requestFile.xlsx");
+            RequestDataReader requestDataReader = new RequestDataReader("./requestFields.xlsx");
             Collection<RequestNode> collectionRequests = requestDataReader.getRequestData();
-            RequestHolder requestHolder = new RequestHolder(collectionRequests);
+            IRequestHolder requestHolder = new RequestHolder(collectionRequests);
 
-            requestHolder.sendRequest();
+            System.out.println("Response Map : " + requestHolder.sendRequest().toString() );
         } catch (Exception ex) {
             ex.printStackTrace();
         }

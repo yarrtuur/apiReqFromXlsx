@@ -2,8 +2,8 @@ package org.surgonthewaves.projects.httpReq.utils;
 
 import org.surgonthewaves.projects.httpReq.ExitException;
 
-public class LoadRequestParams {
-    private ConnectionProperties connectionProperties;
+public class LoadRequestParams implements ILoadRequestParams{
+    private IConnectionProperties connectionProperties;
 
     public LoadRequestParams() throws ExitException {
         connectionProperties = new ConnectionProperties();

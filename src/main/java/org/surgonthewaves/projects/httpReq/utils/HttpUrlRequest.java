@@ -1,63 +1,32 @@
 package org.surgonthewaves.projects.httpReq.utils;
 
+
+import com.mashape.unirest.http.JsonNode;
+import com.mashape.unirest.http.Unirest;
+import com.mashape.unirest.http.exceptions.UnirestException;
+import com.mashape.unirest.http.HttpResponse;
 import org.surgonthewaves.projects.httpReq.ExitException;
 
 import java.io.*;
-import java.net.HttpURLConnection;
-import java.net.ProtocolException;
-import java.net.URL;
-import java.nio.charset.StandardCharsets;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
-public class HttpUrlRequest {
-    private HttpURLConnection myUrlCon;
+public class HttpUrlRequest implements IHttpUrlRequest{
 
     public Map<String, String> postRequest(String postUrl, String urlParameters) throws ExitException {
-        byte[] postData = urlParameters.getBytes(StandardCharsets.UTF_8);
-        int postDataLength = postData.length;
         try {
-            URL myUrl = new URL(postUrl);
-            myUrlCon = (HttpURLConnection) myUrl.openConnection();
-            setMyUrlConProperties(postDataLength);
-            System.out.println(String.format("Request sent: %s", urlParameters));
-            sendData(myUrlCon, postData);
-            return receiveData(myUrlCon.getInputStream());
-        } catch (IOException | ExitException ex) {
-            throw new ExitException(ex.getMessage());
+            HttpResponse <String> response = Unirest.post(String.format("%s?%s", postUrl, urlParameters))
+                    .header("Content-Type", "application/x-www-form-urlencoded")
+                    .header("cache-control", "no-cache")
+                    .asString();
+            return receiveData(response);
+        } catch (UnirestException | IOException ex) {
+            throw new ExitException(ex.getStackTrace().toString());
         }
     }
 
-    private void setMyUrlConProperties(int postDataLength) throws ProtocolException {
-        myUrlCon.setRequestMethod("POST");
-        myUrlCon.setDoOutput(true);
-        myUrlCon.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
-        myUrlCon.setRequestProperty("charset", "utf-8");
-        myUrlCon.setRequestProperty("Content-Length", Integer.toString(postDataLength));
-        myUrlCon.setUseCaches(false);
-    }
-
-    private void sendData(HttpURLConnection con, byte[] postData) throws IOException {
-        try (DataOutputStream wr = new DataOutputStream(con.getOutputStream())) {
-            wr.write(postData);
-            wr.flush();
-        } catch (IOException ex) {
-            throw ex;
-        }
-    }
-
-    private Map<String, String> receiveData(InputStream in) throws ExitException {
-        StringBuilder sb = new StringBuilder();
-        try (
-                BufferedReader reader = new BufferedReader(new InputStreamReader(in))
-        ) {
-            while (reader.ready()) {
-                sb.append(reader.readLine());
-            }
-        } catch (IOException ex) {
-            throw new ExitException(ex.getMessage());
-        }
-        return makeResponseMap(sb.toString());
+    private Map<String, String> receiveData(HttpResponse response) throws IOException {
+        return makeResponseMap(response.getBody().toString());
     }
 
     private Map<String, String> makeResponseMap(String responseLine) {

@@ -6,8 +6,8 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
 
-public class ConnectionProperties {
-    private static final String CONNECT_PROPERTIES = "connsrv.properties";
+public class ConnectionProperties implements IConnectionProperties{
+    private static final String CONNECT_PROPERTIES = "./connsrv.properties";
     private Properties connProperties = new Properties();
 
     public ConnectionProperties() throws ExitException {
@@ -22,15 +22,15 @@ public class ConnectionProperties {
     }
 
     public String getConnUserName() {
-        return connProperties.getProperty("userName");
+        return connProperties.getProperty("conn.userName");
     }
 
     public String getConnPasswd() {
-        return connProperties.getProperty("password");
+        return connProperties.getProperty("conn.password");
     }
 
     public String getConnUrlConnect() {
-        return connProperties.getProperty("urlConnect");
+        return connProperties.getProperty("conn.urlConnect");
     }
 
 }

@@ -24,8 +24,8 @@ public class RequestDataReader {
             SheetReader<RequestNode> reader = sheet.getBeanReader(RequestNode.class);
             Collection<RequestNode> requestNode = reader.read();
             return requestNode;
-        } catch (Exception e) {
-            throw new ExitException(e.getMessage());
+        }catch ( Exception ex){
+            throw new ExitException(ex.getStackTrace().toString());
         }
     }
 }
