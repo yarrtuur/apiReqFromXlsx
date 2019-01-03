@@ -14,12 +14,12 @@ public class RequestHolder implements IRequestHolder{
     private Map<String, Object> requestMap;
 
     public RequestHolder(Collection<RequestNode> requestList) throws ExitException {
-        ILoadRequestParams loader = new LoadRequestParams();
-        this.postUrl = loader.getUrlConnect();
-        this.requestList = requestList;
+
     }
 
-    public void sendRequest() throws ExitException {
+    public void sendRequest(Collection<RequestNode> requestListIn, ILoadRequestParams loaderRequestParams) throws ExitException {
+        this.postUrl = loaderRequestParams.getUrlConnect();
+        this.requestList = requestListIn;
         for (RequestNode step : requestList) {
             requestMap = step.getDynamicCols();
             String urlParameters = makeUrlParameters();

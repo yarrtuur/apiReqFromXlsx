@@ -9,13 +9,13 @@ public class Main {
     public static void main(String[] args) {
         try {
 
-            RequestDataReader requestDataReader = new RequestDataReader("./requestFields.xlsx");
-            Collection<RequestNode> collectionRequests = requestDataReader.getRequestData();
-
-
+            IRequestDataReader requestDataReader = new RequestDataReader();
+            Collection<RequestNode> collectionRequests = requestDataReader.getRequestData("./requestFields.xlsx");
+            ILoadRequestParams loaderRequestParams = new LoadRequestParams();
+            //todo - make method which gets connection properties file for loaderRequestParams
 
             IRequestHolder requestHolder = new RequestHolder(collectionRequests);
-            requestHolder.sendRequest();
+            requestHolder.sendRequest(collectionRequests, loaderRequestParams);
 
         } catch (Exception ex) {
             ex.printStackTrace();

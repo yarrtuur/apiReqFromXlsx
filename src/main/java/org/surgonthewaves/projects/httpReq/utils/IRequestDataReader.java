@@ -5,8 +5,8 @@ import org.surgonthewaves.projects.httpReq.data_containers.RequestNode;
 
 import java.util.Collection;
 
-public interface IRequestHolder {
+public interface IRequestDataReader {
 
-    public void sendRequest(Collection<RequestNode> collectionRequests, ILoadRequestParams loader) throws ExitException;
+    public Collection<RequestNode> getRequestData(String requestFile) throws ExitException;
 
 }
