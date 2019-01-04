@@ -11,21 +11,19 @@ public class Main {
     public static void main(String[] args) {
         try {
 
-            //todo make class that contain ways and files with request, connect and response data
             FileNamesDict fileNamesDict = new FileNamesDict();
             fileNamesDict.setConnectFile("./connsrv.properties");
             fileNamesDict.setRequestFile("./requestFields.xlsx");
             fileNamesDict.setResponseFile("./responseFile.csv");
 
             IRequestDataReader requestDataReader = new RequestDataReader();
-            Collection<RequestNode> collectionRequests = requestDataReader.getRequestData(fileNamesDict.getRequestFile());
+            Collection<RequestNode> collectionRequests = requestDataReader.getRequestData(fileNamesDict);
 
             IConnectionProperties connectionProperties = new ConnectionProperties();
-            connectionProperties.setConnParams(fileNamesDict.getConnectFile());
+            connectionProperties.setConnParams(fileNamesDict);
 
             ILoadRequestParams loaderRequestParams = new LoadRequestParams();
             loaderRequestParams.setConnectProperties(connectionProperties);
-
 
             IRequestHolder requestHolder = new RequestHolder();
             LinkedList<String> responseList = requestHolder.sendRequest(collectionRequests, loaderRequestParams);
