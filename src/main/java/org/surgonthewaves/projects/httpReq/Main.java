@@ -27,9 +27,10 @@ public class Main {
 
             IRequestHolder requestHolder = new RequestHolder();
             LinkedList<String> responseList = requestHolder.sendRequest(collectionRequests, loaderRequestParams);
-            Iterator<String> it = responseList.iterator();
-            while(it.hasNext()){
-                System.out.println(it.next());
+
+
+            for (String s : responseList) {
+                System.out.println(s);
             }
 
         } catch (Exception ex) {

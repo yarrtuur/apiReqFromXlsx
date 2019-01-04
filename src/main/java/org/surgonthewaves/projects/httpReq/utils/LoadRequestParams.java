@@ -28,6 +28,6 @@ public class LoadRequestParams implements ILoadRequestParams{
     }
 
     private boolean chkConnectionProperties(){
-        return (connectionProperties != null) ? true : false;
+        return connectionProperties != null;
     }
 }

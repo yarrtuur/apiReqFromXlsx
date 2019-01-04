@@ -5,6 +5,6 @@ import org.surgonthewaves.projects.httpReq.ExitException;
 
 public interface IHttpUrlRequest {
 
-    public HttpResponse<String> postRequest(String postUrl, String urlParameters) throws ExitException;
+    HttpResponse<String> postRequest(String postUrl, String urlParameters) throws ExitException;
 
 }

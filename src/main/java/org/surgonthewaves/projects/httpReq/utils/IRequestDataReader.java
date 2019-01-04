@@ -8,6 +8,6 @@ import java.util.Collection;
 
 public interface IRequestDataReader {
 
-    public Collection<RequestNode> getRequestData(FileNamesDict fileNamesDict) throws ExitException;
+    Collection<RequestNode> getRequestData(FileNamesDict fileNamesDict) throws ExitException;
 
 }

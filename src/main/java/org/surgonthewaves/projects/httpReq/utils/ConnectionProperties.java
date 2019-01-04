@@ -12,7 +12,7 @@ public class ConnectionProperties implements IConnectionProperties{
     private Properties connProperties = new Properties();
 
     private boolean chkConnParamFile(){
-        return (connParamFile != null) ? true : false;
+        return connParamFile != null;
     }
 
     public void setConnParams(FileNamesDict fileNamesDict) throws ExitException{

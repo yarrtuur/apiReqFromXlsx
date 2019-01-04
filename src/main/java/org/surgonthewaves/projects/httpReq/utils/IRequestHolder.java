@@ -8,6 +8,6 @@ import java.util.LinkedList;
 
 public interface IRequestHolder {
 
-    public LinkedList<String> sendRequest(Collection<RequestNode> collectionRequests, ILoadRequestParams loader) throws ExitException;
+    LinkedList<String> sendRequest(Collection<RequestNode> collectionRequests, ILoadRequestParams loader) throws ExitException;
 
 }
