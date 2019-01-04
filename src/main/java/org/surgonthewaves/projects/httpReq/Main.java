@@ -11,8 +11,12 @@ public class Main {
 
             IRequestDataReader requestDataReader = new RequestDataReader();
             Collection<RequestNode> collectionRequests = requestDataReader.getRequestData("./requestFields.xlsx");
+
+            IConnectionProperties connectionProperties = new ConnectionProperties();
+            connectionProperties.setConnParams("./connsrv.properties");
+
             ILoadRequestParams loaderRequestParams = new LoadRequestParams();
-            //todo - make method which gets connection properties file for loaderRequestParams
+            loaderRequestParams.setConnectProperties(connectionProperties);
 
             IRequestHolder requestHolder = new RequestHolder(collectionRequests);
             requestHolder.sendRequest(collectionRequests, loaderRequestParams);

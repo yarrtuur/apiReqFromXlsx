@@ -1,11 +1,15 @@
 package org.surgonthewaves.projects.httpReq.utils;
 
+import org.surgonthewaves.projects.httpReq.ExitException;
+
 public interface IConnectionProperties {
 
-    public String getConnUserName();
+    public void setConnParams(String fileName) throws ExitException;
 
-    public String getConnPasswd();
+    public String getConnUserName() throws ExitException;
 
-    public String getConnUrlConnect();
+    public String getConnPasswd() throws ExitException;
+
+    public String getConnUrlConnect() throws ExitException;
 
 }

@@ -1,9 +1,13 @@
 package org.surgonthewaves.projects.httpReq.utils;
 
+import org.surgonthewaves.projects.httpReq.ExitException;
+
 public interface ILoadRequestParams {
 
-    public String getUrlConnect();
+    public void setConnectProperties(IConnectionProperties inConnectionProperties);
 
-    public String getUserNameAndPasswd();
+    public String getUrlConnect() throws ExitException;
+
+    public String getUserNameAndPasswd() throws ExitException;
 
 }
