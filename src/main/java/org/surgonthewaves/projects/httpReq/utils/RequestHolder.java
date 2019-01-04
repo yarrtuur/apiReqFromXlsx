@@ -3,30 +3,26 @@ package org.surgonthewaves.projects.httpReq.utils;
 import org.surgonthewaves.projects.httpReq.ExitException;
 import org.surgonthewaves.projects.httpReq.data_containers.RequestNode;
 
-import java.util.Collection;
-import java.util.Collections;
-import java.util.Map;
+import java.util.*;
 
 public class RequestHolder implements IRequestHolder{
     private String userNameAndPasswd;
     private String postUrl;
     private Collection<RequestNode> requestList;
     private Map<String, Object> requestMap;
+    private LinkedList<String> responseList;
 
-    public RequestHolder(Collection<RequestNode> requestList) throws ExitException {
-
-    }
-
-    public void sendRequest(Collection<RequestNode> requestListIn, ILoadRequestParams loaderRequestParams) throws ExitException {
+    public LinkedList<String> sendRequest(Collection<RequestNode> requestListIn, ILoadRequestParams loaderRequestParams) throws ExitException {
         this.postUrl = loaderRequestParams.getUrlConnect();
         this.requestList = requestListIn;
+        this.responseList = new LinkedList<>();
         for (RequestNode step : requestList) {
             requestMap = step.getDynamicCols();
             String urlParameters = makeUrlParameters();
             IHttpUrlRequest httpUrlRequest = new HttpUrlRequest();
-            httpUrlRequest.postRequest(postUrl, urlParameters).getBody();
+            responseList.add(httpUrlRequest.postRequest(postUrl, urlParameters).getBody());
         }
-
+        return responseList;
     }
 
     private String makeUrlParameters() {
