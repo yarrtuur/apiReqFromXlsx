@@ -1,6 +1,6 @@
-package org.surgonthewaves.projects.httpReq.utils;
+package org.surfonthewaves.projects.httpReq.utils;
 
-import org.surgonthewaves.projects.httpReq.ExitException;
+import org.surfonthewaves.projects.httpReq.ExitException;
 
 public class LoadRequestParams implements ILoadRequestParams{
     private IConnectionProperties connectionProperties;
@@ -9,7 +9,7 @@ public class LoadRequestParams implements ILoadRequestParams{
         this.connectionProperties = inConnectionProperties;
     }
 
-    public String getUrlConnect()  throws ExitException{
+    public String getUrlConnect()  throws ExitException {
         if(chkConnectionProperties()) {
             return connectionProperties.getConnUrlConnect();
         }else{

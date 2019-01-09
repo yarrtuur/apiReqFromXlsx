@@ -1,7 +1,7 @@
-package org.surgonthewaves.projects.httpReq.utils;
+package org.surfonthewaves.projects.httpReq.utils;
 
-import org.surgonthewaves.projects.httpReq.ExitException;
-import org.surgonthewaves.projects.httpReq.data_containers.FileNamesDict;
+import org.surfonthewaves.projects.httpReq.ExitException;
+import org.surfonthewaves.projects.httpReq.data_containers.FileNamesDict;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -15,7 +15,7 @@ public class ConnectionProperties implements IConnectionProperties{
         return connParamFile != null;
     }
 
-    public void setConnParams(FileNamesDict fileNamesDict) throws ExitException{
+    public void setConnParams(FileNamesDict fileNamesDict) throws ExitException {
         connParamFile = fileNamesDict.getConnectFile();
         ClassLoader classloader = Thread.currentThread().getContextClassLoader();
         try (

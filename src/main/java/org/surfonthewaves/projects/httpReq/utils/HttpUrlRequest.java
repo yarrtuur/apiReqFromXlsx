@@ -1,9 +1,9 @@
-package org.surgonthewaves.projects.httpReq.utils;
+package org.surfonthewaves.projects.httpReq.utils;
 
 import com.mashape.unirest.http.Unirest;
 import com.mashape.unirest.http.exceptions.UnirestException;
 import com.mashape.unirest.http.HttpResponse;
-import org.surgonthewaves.projects.httpReq.ExitException;
+import org.surfonthewaves.projects.httpReq.ExitException;
 
 public class HttpUrlRequest implements IHttpUrlRequest{
 

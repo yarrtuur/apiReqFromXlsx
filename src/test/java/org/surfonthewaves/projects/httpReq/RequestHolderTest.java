@@ -1,11 +1,11 @@
-package org.surgonthewaves.projects.httpReq;
+package org.surfonthewaves.projects.httpReq;
 
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-//import org.surgonthewaves.projects.httpReq.ExitException;
-import org.surgonthewaves.projects.httpReq.utils.*;
-import org.surgonthewaves.projects.httpReq.data_containers.*;
+//import ExitException;
+import org.surfonthewaves.projects.httpReq.utils.*;
+import org.surfonthewaves.projects.httpReq.data_containers.*;
 
 import java.util.Collection;
 import java.util.Map;

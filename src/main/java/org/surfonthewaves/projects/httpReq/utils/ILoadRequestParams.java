@@ -1,6 +1,6 @@
-package org.surgonthewaves.projects.httpReq.utils;
+package org.surfonthewaves.projects.httpReq.utils;
 
-import org.surgonthewaves.projects.httpReq.ExitException;
+import org.surfonthewaves.projects.httpReq.ExitException;
 
 public interface ILoadRequestParams {
 

@@ -1,10 +1,12 @@
-package org.surgonthewaves.projects.httpReq;
+package org.surfonthewaves.projects.httpReq;
 
-import org.surgonthewaves.projects.httpReq.utils.*;
-import org.surgonthewaves.projects.httpReq.data_containers.*;
+import org.surfonthewaves.projects.httpReq.data_containers.FileNamesDict;
+import org.surfonthewaves.projects.httpReq.data_containers.RequestNode;
+import org.surfonthewaves.projects.httpReq.utils.IRequestDataReader;
+import org.surfonthewaves.projects.httpReq.utils.RequestDataReader;
+import org.surfonthewaves.projects.httpReq.utils.*;
 
 import java.util.Collection;
-import java.util.Iterator;
 import java.util.LinkedList;
 
 public class Main {
@@ -13,7 +15,7 @@ public class Main {
 
             FileNamesDict fileNamesDict = new FileNamesDict();
             fileNamesDict.setConnectFile("./connsrv.properties");
-            fileNamesDict.setRequestFile("./requestFields.xlsx");
+            fileNamesDict.setRequestFile("./requestFields.csv");
             fileNamesDict.setResponseFile("./responseFile.csv");
 
             IRequestDataReader requestDataReader = new RequestDataReader();

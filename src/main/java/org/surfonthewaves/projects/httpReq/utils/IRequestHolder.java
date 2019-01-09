@@ -1,7 +1,7 @@
-package org.surgonthewaves.projects.httpReq.utils;
+package org.surfonthewaves.projects.httpReq.utils;
 
-import org.surgonthewaves.projects.httpReq.ExitException;
-import org.surgonthewaves.projects.httpReq.data_containers.RequestNode;
+import org.surfonthewaves.projects.httpReq.ExitException;
+import org.surfonthewaves.projects.httpReq.data_containers.RequestNode;
 
 import java.util.Collection;
 import java.util.LinkedList;

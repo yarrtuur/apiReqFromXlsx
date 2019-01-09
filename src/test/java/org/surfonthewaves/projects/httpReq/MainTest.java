@@ -1,4 +1,4 @@
-package org.surgonthewaves.projects.httpReq;
+package org.surfonthewaves.projects.httpReq;
 
 import junit.framework.Test;
 import junit.framework.TestCase;

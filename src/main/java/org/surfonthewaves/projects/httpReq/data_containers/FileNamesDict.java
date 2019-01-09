@@ -1,4 +1,4 @@
-package org.surgonthewaves.projects.httpReq.data_containers;
+package org.surfonthewaves.projects.httpReq.data_containers;
 
 public class FileNamesDict {
     private String requestFile;

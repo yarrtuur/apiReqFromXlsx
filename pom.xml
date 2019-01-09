@@ -30,11 +30,6 @@
             <scope>test</scope>
         </dependency>
         <dependency>
-            <groupId>com.ebay</groupId>
-            <artifactId>xcelite</artifactId>
-            <version>1.0.4</version>
-        </dependency>
-        <dependency>
             <groupId>commons-io</groupId>
             <artifactId>commons-io</artifactId>
             <version>2.4</version>
@@ -137,7 +132,7 @@
                         <manifest>
                             <addClasspath>true</addClasspath>
                             <classpathPrefix>lib/</classpathPrefix>
-                            <mainClass>org.surgonthewaves.projects.httpReq.Main</mainClass>
+                            <mainClass>org.surfonthewaves.projects.httpReq.Main</mainClass>
                         </manifest>
                         <manifestEntries>
                             <Class-Path>.</Class-Path>

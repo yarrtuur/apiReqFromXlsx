@@ -1,14 +1,14 @@
-package org.surgonthewaves.projects.httpReq.data_containers;
+package org.surfonthewaves.projects.httpReq.data_containers;
 
-import com.ebay.xcelite.annotations.AnyColumn;
-
-import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Objects;
 
 public class RequestNode {
-    @AnyColumn(as = LinkedHashMap.class)
     private Map<String, Object> dynamicCols;
+
+    public RequestNode(Map<String, Object> mapStructure){
+        dynamicCols = mapStructure;
+    }
 
     public Map<String, Object> getDynamicCols() {
         return dynamicCols;
@@ -34,4 +34,5 @@ public class RequestNode {
                 "dynamicCols=" + dynamicCols +
                 '}';
     }
+
 }

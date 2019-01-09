@@ -1,4 +1,4 @@
-package org.surgonthewaves.projects.httpReq;
+package org.surfonthewaves.projects.httpReq;
 
 public class ExitException extends Exception {
     public ExitException() {
