@@ -1,11 +1,11 @@
 package org.surfonthewaves.projects.httpReq.utils;
 
 import org.surfonthewaves.projects.httpReq.ExitException;
-import org.surfonthewaves.projects.httpReq.data_containers.FileNamesDict;
+import org.surfonthewaves.projects.httpReq.containers.ConfigDataObj;
 
 public interface IConnectionProperties {
 
-    void setConnParams(FileNamesDict fileNamesDict) throws ExitException;
+    void setConnParams(ConfigDataObj configDataObj) throws ExitException;
 
     String getConnUserName() throws ExitException;
 

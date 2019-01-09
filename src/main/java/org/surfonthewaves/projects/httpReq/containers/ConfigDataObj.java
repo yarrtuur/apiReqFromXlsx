@@ -1,9 +1,18 @@
-package org.surfonthewaves.projects.httpReq.data_containers;
+package org.surfonthewaves.projects.httpReq.containers;
 
-public class FileNamesDict {
+public class ConfigDataObj {
     private String requestFile;
     private String connectFile;
     private String responseFile;
+    private AccessLevel accessLevel;
+
+    public AccessLevel getAccessLevel() {
+        return accessLevel;
+    }
+
+    public void setAccessLevel(AccessLevel accessLevel) {
+        this.accessLevel = accessLevel;
+    }
 
     public String getRequestFile() {
         return requestFile;

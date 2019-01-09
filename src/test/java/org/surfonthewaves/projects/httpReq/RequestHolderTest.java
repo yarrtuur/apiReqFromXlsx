@@ -1,14 +1,6 @@
 package org.surfonthewaves.projects.httpReq;
 
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
 //import ExitException;
-import org.surfonthewaves.projects.httpReq.utils.*;
-import org.surfonthewaves.projects.httpReq.data_containers.*;
-
-import java.util.Collection;
-import java.util.Map;
 
 import static org.junit.Assert.assertEquals;
 

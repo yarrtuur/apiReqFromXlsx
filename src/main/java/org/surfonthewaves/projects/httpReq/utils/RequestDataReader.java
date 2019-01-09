@@ -1,7 +1,7 @@
 package org.surfonthewaves.projects.httpReq.utils;
 
-import org.surfonthewaves.projects.httpReq.data_containers.FileNamesDict;
-import org.surfonthewaves.projects.httpReq.data_containers.RequestNode;
+import org.surfonthewaves.projects.httpReq.containers.ConfigDataObj;
+import org.surfonthewaves.projects.httpReq.containers.RequestNode;
 
 import java.io.*;
 import java.util.*;
@@ -9,8 +9,8 @@ import java.util.*;
 public class RequestDataReader implements IRequestDataReader {
     private List<RequestNode> reqCollection = new LinkedList<>();
 
-    public Collection<RequestNode> getRequestData(FileNamesDict fileNamesDict)  {
-        String requestData = fileNamesDict.getRequestFile();
+    public Collection<RequestNode> getRequestData(ConfigDataObj configDataObj)  {
+        String requestData = configDataObj.getRequestFile();
         ClassLoader classloader = Thread.currentThread().getContextClassLoader();
         try( BufferedReader reader = new BufferedReader(new InputStreamReader(classloader.getResourceAsStream(requestData)));)
         {

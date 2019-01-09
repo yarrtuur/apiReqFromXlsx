@@ -1,4 +1,4 @@
-package org.surfonthewaves.projects.httpReq.data_containers;
+package org.surfonthewaves.projects.httpReq.containers;
 
 import java.util.Map;
 import java.util.Objects;
